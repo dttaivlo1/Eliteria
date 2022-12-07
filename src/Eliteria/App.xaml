@@ -1,0 +1,94 @@
+﻿<Application x:Class="Eliteria.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Eliteria"
+             xmlns:viewmodels="clr-namespace:Eliteria.ViewModels"
+             xmlns:views ="clr-namespace:Eliteria.Views"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Converters/Converters.xaml"/>
+                <ResourceDictionary Source="/Styles/Colors.xaml"/>
+                <ResourceDictionary Source="/Styles/Scroll.xaml"/>
+                <ResourceDictionary Source="/Styles/Fonts.xaml"/>
+                <ResourceDictionary Source="/Styles/icons.xaml"/>
+                <ResourceDictionary Source="/Styles/TextBoxStyles.xaml"/>
+                <ResourceDictionary Source="CustomControls/SearchBox.xaml"/>
+                <ResourceDictionary Source="CustomControls/GreenButton.xaml"/>
+                <ResourceDictionary Source="CustomControls/OutlineWhiteButton.xaml"/>
+                <ResourceDictionary Source="CustomControls/DailyReportItemStyle.xaml"/>
+                <ResourceDictionary Source="CustomControls/MonthlyReportItemStyle.xaml"/>
+                <ResourceDictionary Source="CustomControls/RoundedComboBoxStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/ListBoxStyle.xaml"/>
+                <ResourceDictionary Source="CustomControls/LeftRightButtonStyle.xaml"/>
+                <ResourceDictionary>
+                    <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+                        <views:LoginView/>
+                    </DataTemplate>
+                    
+                    <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+                        <views:HomeView/>
+                    </DataTemplate>
+                    
+                    <DataTemplate DataType="{x:Type viewmodels:ASavingsProfileViewModel}">
+                        <views:ASavingProfileView/>
+                    </DataTemplate>
+                    
+                    <DataTemplate DataType="{x:Type viewmodels:AddNewSavingViewModel}">
+                        <views:AddNewSavingView OnLoadCommand="{Binding OnloadCommand}"/>
+                    </DataTemplate>
+                    
+                    
+                    <DataTemplate DataType="{x:Type viewmodels:SavingsAccountListViewModel}">
+                        <views:SavingsAccountListView OnLoadCommand="{Binding OnLoadCommand}"/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:DashboardViewModel}">
+                        <views:DashboardView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:DailyDashboardViewModel}">
+                        <views:DailyDashboardView OnLoadCommand="{Binding DailyDashboardOnLoadCommand}"/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:MonthlyDashboardViewModel}">
+                        <views:MonthlyDashboardView OnLoadCommand="{Binding OnLoadCommand}"/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:TransactionViewModel}">
+                        <views:TransactionView OnLoadCommand="{Binding OnLoadCommand}"/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:MessageDialogViewModel}">
+                        <views:MessageDialogView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:StaffInfoViewModel}">
+                        <views:StaffInfoView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:SettingViewModel}">
+                        <views:SettingView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:SavingTypeViewModel}">
+                        <views:SavingTypeView OnLoadCommand="{Binding OnLoadCommand}"/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:OtherParameterViewModel}">
+                        <views:OtherParametersView OnLoadCMD="{Binding OnLoadCMD}"/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:AddNewSavingTypeViewModel}">
+                        <views:AddNewSavingTypeView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:StaffsViewModel}">
+                        <views:StaffsView OnLoadCommand="{Binding OnLoadCommand}"/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:EditSavingTypeViewModel}">
+                        <views:EditSavingTypeView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:AddStaffViewModel}">
+                        <views:AddSatffView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:ModifyStaffInforViewModel}">
+                        <views:ModifyStaffInfoView/>
+                    </DataTemplate>
+                </ResourceDictionary>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+    </Application.Resources>
+</Application>

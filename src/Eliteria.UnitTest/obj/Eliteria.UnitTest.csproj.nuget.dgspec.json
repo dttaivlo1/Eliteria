@@ -1,0 +1,146 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Garena\\Garena\\New folder\\src\\Eliteria.UnitTest\\Eliteria.UnitTest.csproj": {}
+  },
+  "projects": {
+    "D:\\Garena\\Garena\\New folder\\src\\Eliteria.UnitTest\\Eliteria.UnitTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Garena\\Garena\\New folder\\src\\Eliteria.UnitTest\\Eliteria.UnitTest.csproj",
+        "projectName": "Eliteria.UnitTest",
+        "projectPath": "D:\\Garena\\Garena\\New folder\\src\\Eliteria.UnitTest\\Eliteria.UnitTest.csproj",
+        "packagesPath": "C:\\Users\\dttai\\.nuget\\packages\\",
+        "outputPath": "D:\\Garena\\Garena\\New folder\\src\\Eliteria.UnitTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dttai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\Garena\\Garena\\New folder\\src\\Eliteria\\Eliteria.csproj": {
+                "projectPath": "D:\\Garena\\Garena\\New folder\\src\\Eliteria\\Eliteria.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.9.4, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.1, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.17.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Garena\\Garena\\New folder\\src\\Eliteria\\Eliteria.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Garena\\Garena\\New folder\\src\\Eliteria\\Eliteria.csproj",
+        "projectName": "Eliteria",
+        "projectPath": "D:\\Garena\\Garena\\New folder\\src\\Eliteria\\Eliteria.csproj",
+        "frameworks": {
+          "net481": {
+            "projectReferences": {
+              "D:\\Garena\\Garena\\New folder\\src\\ModalControl\\ModalControl.csproj": {
+                "projectPath": "D:\\Garena\\Garena\\New folder\\src\\ModalControl\\ModalControl.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net481": {}
+      }
+    },
+    "D:\\Garena\\Garena\\New folder\\src\\ModalControl\\ModalControl.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Garena\\Garena\\New folder\\src\\ModalControl\\ModalControl.csproj",
+        "projectName": "ModalControl",
+        "projectPath": "D:\\Garena\\Garena\\New folder\\src\\ModalControl\\ModalControl.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}

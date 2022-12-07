@@ -1,0 +1,13 @@
+D:\Garena\Garena\New folder\src\ModalControl\bin\Debug\ModalControl.dll
+D:\Garena\Garena\New folder\src\ModalControl\bin\Debug\ModalControl.pdb
+D:\Garena\Garena\New folder\src\ModalControl\obj\Debug\ModalControl.csproj.AssemblyReference.cache
+D:\Garena\Garena\New folder\src\ModalControl\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Garena\Garena\New folder\src\ModalControl\obj\Debug\ModalControl_MarkupCompile.cache
+D:\Garena\Garena\New folder\src\ModalControl\obj\Debug\ModalControl_MarkupCompile.lref
+D:\Garena\Garena\New folder\src\ModalControl\obj\Debug\Themes\Generic.baml
+D:\Garena\Garena\New folder\src\ModalControl\obj\Debug\ModalControl.g.resources
+D:\Garena\Garena\New folder\src\ModalControl\obj\Debug\ModalControl.Properties.Resources.resources
+D:\Garena\Garena\New folder\src\ModalControl\obj\Debug\ModalControl.csproj.GenerateResource.cache
+D:\Garena\Garena\New folder\src\ModalControl\obj\Debug\ModalControl.csproj.CoreCompileInputs.cache
+D:\Garena\Garena\New folder\src\ModalControl\obj\Debug\ModalControl.dll
+D:\Garena\Garena\New folder\src\ModalControl\obj\Debug\ModalControl.pdb

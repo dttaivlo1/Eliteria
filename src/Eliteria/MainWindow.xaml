@@ -1,0 +1,22 @@
+﻿<Window x:Class="Eliteria.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Eliteria"
+        xmlns:customcontrols="clr-namespace:Eliteria.CustomControls"
+        xmlns:custom="clr-namespace:ModalControl;assembly=ModalControl"
+        xmlns:views="clr-namespace:Eliteria.Views"
+        mc:Ignorable="d"
+        Title="Ngân hàng HUFLIT"
+        MinWidth="1280"
+        MinHeight="720"
+        WindowState="Maximized"
+        
+      
+        Background="{StaticResource PlatinumBrush}">
+    <Grid>
+        <custom:Modal Panel.ZIndex="100" Content="{Binding CurrentModal}" IsOpen="{Binding IsOpen}"/>
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+    </Grid>
+</Window>

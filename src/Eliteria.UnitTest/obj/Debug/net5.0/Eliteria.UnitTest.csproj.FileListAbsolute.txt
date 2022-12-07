@@ -1,0 +1,5 @@
+D:\Garena\Garena\New folder\src\Eliteria.UnitTest\obj\Debug\net5.0\Eliteria.UnitTest.csproj.AssemblyReference.cache
+D:\Garena\Garena\New folder\src\Eliteria.UnitTest\obj\Debug\net5.0\Eliteria.UnitTest.GeneratedMSBuildEditorConfig.editorconfig
+D:\Garena\Garena\New folder\src\Eliteria.UnitTest\obj\Debug\net5.0\Eliteria.UnitTest.AssemblyInfoInputs.cache
+D:\Garena\Garena\New folder\src\Eliteria.UnitTest\obj\Debug\net5.0\Eliteria.UnitTest.AssemblyInfo.cs
+D:\Garena\Garena\New folder\src\Eliteria.UnitTest\obj\Debug\net5.0\Eliteria.UnitTest.csproj.CoreCompileInputs.cache

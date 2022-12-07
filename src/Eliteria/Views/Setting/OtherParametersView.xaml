@@ -1,0 +1,179 @@
+﻿<UserControl x:Class="Eliteria.Views.OtherParametersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Eliteria.Views"
+             xmlns:customctrls="clr-namespace:Eliteria.CustomControls"
+             mc:Ignorable="d" Loaded="UserControl_Loaded"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid>
+            <Grid.Resources>
+                <Style x:Key="Underline" TargetType="{x:Type Grid}">
+                    <Setter Property="Width" Value="280"/>
+                    <Setter Property="Height" Value="2"/>
+                    <Setter Property="VerticalAlignment" Value="Top"/>
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="Background" Value="{StaticResource DimGrayBrush}"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="1" Grid.Row="1" Margin="7" UseLayoutRounding="True">
+                <Border Background="White" CornerRadius="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Sô tiền gửi thêm tối thiểu" 
+                       VerticalAlignment="Center" 
+                       FontFamily="{StaticResource SFProSemibold}"
+                       FontSize="15"
+                       Margin="20,0,0,0"/>
+                        <Grid Grid.Column="1" Height="60" VerticalAlignment="Center">
+                            <TextBox
+                                x:Name="ThemToiThieu"
+                                GotKeyboardFocus="TextBox_GotKeyboardFocus"
+                                PreviewTextInput="TextBox_PreviewTextInput"
+                                Width="280"
+                                Height="auto"
+                                Margin="0,20,0,0"
+                                BorderThickness="0"
+                                HorizontalAlignment="Left"
+                                FontSize="15"
+                                FontFamily="{StaticResource SFProRegular}"
+                                Text="{Binding OtherParameter.MinDepositAmount, Mode=TwoWay, Converter={StaticResource MoneyFormat}}">
+                            </TextBox>
+                            <!--Đường kẻ-->
+                            <Grid Style="{StaticResource Underline}" HorizontalAlignment="Left" Margin="0,40,0,0"/>
+                        </Grid>
+
+                        <Button Style="{StaticResource GreenButtonTheme}" 
+                            Content="Lưu" Grid.Column="3"
+                            Command="{Binding EditParameterCMD}"></Button>
+                    </Grid>
+                </Border>
+                <Grid.Effect>
+                    <DropShadowEffect Opacity="0.05"/>
+                </Grid.Effect>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="3" Margin="7" UseLayoutRounding="True">
+                <Border Background="White" CornerRadius="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Sô tiền gửi ban đầu tối thiểu" 
+                       VerticalAlignment="Center" 
+                       FontFamily="{StaticResource SFProSemibold}"
+                       FontSize="15"
+                       Margin="20,0,0,0"/>
+                        <Grid Grid.Column="1" Height="60" VerticalAlignment="Center">
+                            <TextBox
+                                x:Name="BanDauToiThieu"
+                                PreviewTextInput="TextBox_PreviewTextInput"
+                                GotKeyboardFocus="TextBox_GotKeyboardFocus_1"
+                                Width="280"
+                                Height="auto"
+                                Margin="0,20,0,0"
+                                BorderThickness="0"
+                                HorizontalAlignment="Left"
+                                FontSize="15"
+                                FontFamily="{StaticResource SFProRegular}"
+                                Text="{Binding OtherParameter.MinInitialDeposit, Mode=TwoWay, Converter={StaticResource MoneyFormat}}">
+                            </TextBox>
+                            <!--Đường kẻ-->
+                            <Grid Style="{StaticResource Underline}" HorizontalAlignment="Left" Margin="0,40,0,0"/>
+                        </Grid>
+                        <Button Style="{StaticResource GreenButtonTheme}" 
+                            Content="Lưu" Grid.Column="3" Command="{Binding EditParameterCMD}"></Button>
+                    </Grid>
+                </Border>
+                <Grid.Effect>
+                    <DropShadowEffect Opacity="0.05"/>
+                </Grid.Effect>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="5" Margin="7" UseLayoutRounding="True">
+                <Border Background="White" CornerRadius="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Điều khiển tự động đóng sổ" 
+                       VerticalAlignment="Center" 
+                       FontFamily="{StaticResource SFProSemibold}"
+                       FontSize="15"
+                       Margin="20,0,0,0"/>
+                        <ComboBox Style="{StaticResource ComboBox}" Grid.Row="0" Grid.Column="1" FontSize="15" IsEditable="True"
+                                  SelectedIndex="{Binding OtherParameter.ControlClosingSaving}" HorizontalAlignment="Left" Width="280">
+
+                            <ComboBoxItem>
+                                Tắt
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Bật
+                            </ComboBoxItem>
+                        </ComboBox>
+                        <Button Style="{StaticResource GreenButtonTheme}" 
+                            Content="Lưu" Grid.Column="3" Command="{Binding EditParameterCMD}"></Button>
+                    </Grid>
+                </Border>
+                <Grid.Effect>
+                    <DropShadowEffect Opacity="0.05"/>
+                </Grid.Effect>
+            </Grid>
+        </Grid>
+        <Grid>
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsLoading}" Value="true">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Border Background="{StaticResource PlatinumBrush}" Margin="4" CornerRadius="4">
+                <customctrls:LoadingSpinnerControl IsLoading="{Binding IsLoading}" Diameter="80" StrokeThickness="6"/>
+            </Border>
+        </Grid>
+        <Grid>
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsLoadingError}" Value="true">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Border Background="{StaticResource PlatinumBrush}" Margin="4" CornerRadius="4">
+                <Image Grid.Column="0" Source="/Resources/LostConnection.png" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

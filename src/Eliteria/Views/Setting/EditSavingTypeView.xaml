@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="Eliteria.Views.EditSavingTypeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Eliteria.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" Width="488">
+    <Grid Grid.Column="1"  Background="White">
+        <Grid.Resources>
+            <Style x:Key="Underline" TargetType="{x:Type Grid}">
+                <Setter Property="Width" Value="280"/>
+                <Setter Property="Height" Value="2"/>
+                <Setter Property="Margin" Value="170,35,0,0"/>
+                <Setter Property="VerticalAlignment" Value="Top"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Background" Value="{StaticResource DimGrayBrush}"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.Effect>
+            <DropShadowEffect Opacity="0.05"/>
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <TextBlock 
+            Text="Sửa Loại Sổ" 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center" 
+            FontSize="30" FontFamily="{StaticResource SFProSemibold}"/>
+        <Button 
+            Style="{StaticResource OutlineWhiteButtonTheme}" 
+            Content="Đóng" 
+            Width="100"
+            Grid.Row="5"
+            HorizontalAlignment="Right"
+            Margin="0,27,53,29"
+            Command="{Binding CloseCMD}"/>
+        <Button 
+            Style="{StaticResource GreenButtonTheme}"
+            Content="Lưu" 
+            Width="100"
+            Grid.Row="5"
+            HorizontalAlignment="Right"
+            Margin="0,27,173,29"
+            Command="{Binding EditCMD}">
+        </Button>
+        <!--Dòng 1-->
+        <TextBlock 
+            Grid.Row="1"
+            Text="Tên loại sổ"
+            Margin="37,20,28,0"/>
+        <!--Nội dung-->
+        <TextBlock
+            Name="TypeName"
+            Grid.Row="1"
+            Margin="168,15,52,10"
+            Width="280"
+            Text="{Binding SavingType.Name}">
+        </TextBlock>
+        <!--Đường kẻ-->
+        <Grid Style="{StaticResource Underline}" Grid.Row="1" Margin="165,35,0,0"/>
+        <!--Dòng 2-->
+        <TextBlock 
+            Grid.Row="2"
+            Text="Kỳ hạn"
+            Margin="37,20,28,0"/>
+        <!--Nội dung-->
+        <TextBlock
+            Name="Period"
+            Grid.Row="2"
+            Margin="165,15,255,10"
+            Width="80"
+            Text="{Binding SavingType.Period}"/>
+        <!--Đường kẻ-->
+        <Grid Style="{StaticResource Underline}" Grid.Row="2" Width="80" Margin="165,35,0,0"/>
+
+        <TextBlock 
+            Grid.Row="2"
+            Text="Quy định rút"
+            Margin="271,20,-206,0"/>
+        <!--Nội dung-->
+        <TextBlock
+            Name="WithdrawalRule"
+            Grid.Row="2"
+            Margin="364,15,56,10"
+            Width="80"
+            Text="{Binding SavingType.WithdrawalRule}"/>
+        <!--Đường kẻ-->
+        <Grid Style="{StaticResource Underline}" Grid.Row="2" Width="80" Margin="365,35,0,0"/>
+        <!--Dòng 3-->
+        <TextBlock 
+            Grid.Row="4"
+            Text="Số ngày gửi tối thiểu"
+            Margin="37,20,28,0"/>
+        <!--Nội dung-->
+        <TextBox
+            PreviewTextInput="MinDays_PreviewTextInput"
+            Name="MinDays"
+            Grid.Row="4"
+            Margin="165,15,243,10"
+            BorderThickness="0"
+            Text="{Binding MinNumOfDateToWithdraw, Mode=TwoWay}"/>
+        <!--Đường kẻ-->
+        <Grid Style="{StaticResource Underline}" Grid.Row="4" Width="80" Margin="165,35,0,0"/>
+
+        <TextBlock 
+            Grid.Row="4"
+            Text="Lãi suất"
+            Margin="271,20,-206,0"/>
+        <!--Nội dung-->
+        <TextBox
+            PreviewTextInput="InterestRate_PreviewTextInput"
+            Name="InterestRate"
+            Grid.Row="4"
+            Margin="364,15,56,10"
+            Width="80"
+            BorderThickness="0"
+            Text="{Binding InterestRate, Mode=TwoWay}"/>
+        <!--Đường kẻ-->
+        <Grid Style="{StaticResource Underline}" Grid.Row="4" Width="80" Margin="365,35,0,0"/>
+        <TextBlock Text="Thông số có thể sửa" 
+                   Grid.Row="3" 
+                   VerticalAlignment="Center"
+                   Margin="78,16,302,14" Height="20"/>
+        <Grid Style="{StaticResource Underline}" 
+              Grid.Row="3" Width="23" Height="1"
+              VerticalAlignment="Center" 
+              Margin="37,24,0,24"/>
+        <Grid Style="{StaticResource Underline}" 
+              Grid.Row="3" Width="238" Height="1"
+              VerticalAlignment="Center"
+              Margin="207,24,0,24"/>
+        <TextBox HorizontalAlignment="Center" TextAlignment="Center" FontWeight="Bold" BorderThickness="0" Height="22" Grid.Row="5" TextWrapping="Wrap" Foreground="{Binding ErrorColor,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Text="{Binding ErrorStatus,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" VerticalAlignment="Center" Width="450" Margin="19,4,19,74" />
+    </Grid>
+</UserControl>
