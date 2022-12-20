@@ -19,7 +19,9 @@ namespace Eliteria.Models
         public DateTime BirthDay { get; set; }
         public int Status { get; set; }
 
-
-
+    }
+    public interface PCustommer
+    {
+        void InsertCustomer(Customer customer);
     }
 }

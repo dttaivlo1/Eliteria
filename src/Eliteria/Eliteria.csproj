@@ -98,6 +98,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class\AccountSingleton.cs" />
     <Compile Include="Command\Setting\AddNewSavingTypeCommand.cs" />
     <Compile Include="Command\BaseCommand.cs" />
     <Compile Include="Command\Dashboard\MonthlyExportCommand.cs" />

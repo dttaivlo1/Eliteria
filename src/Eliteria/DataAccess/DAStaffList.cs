@@ -1,12 +1,70 @@
-﻿using System;
+﻿using DevExpress.Xpo.DB.Helpers;
+
+using Eliteria.Models;
+
+using System;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Eliteria.DataAccess
 {
-    public static class DAStaffList
+    public enum staffName
     {
+        InvalidFullName,
+        InvalidBirthday,
+        Valid
+    }
+    interface staffAccount
+    {
+        Task<staffName> CreateNewStaff(Account a);
+    }
+    public class ProxyDAStaffList : DAStaffList, staffAccount
+    {
+        private DAStaffList dAStaffList;
+
+        public ProxyDAStaffList()
+        {
+        }
+
+        public ProxyDAStaffList (DAStaffList dAStaffList)
+        {
+            this.dAStaffList = dAStaffList;
+        }
+        public static async Task<staffName> CreateNewStaff(Account _user)
+        {
+            StringComparison comp = StringComparison.OrdinalIgnoreCase;
+            string notAllow = "Ho Chi Minh";
+            var age = 0;
+            if (_user.Birthdate != null)
+            {
+                age = DateTime.Now.Year - _user.Birthdate.Year;
+            }
+
+            var name = "";
+            if (_user.StaffName != null)
+            {
+                name = _user.StaffName;
+            }
+
+            if (name.Contains(notAllow))
+            {
+                return staffName.InvalidFullName;
+
+            }
+            else
+            {
+                string query = "Eliteria_AddNewStaff @Position , @Name , @IdentificationNumber , @Gender , @Birthday , @PhoneNumber , @Address , @Password , @Email";
+                await ExecuteQuery.ExecuteNoneQueryAsync(query, new object[] { _user.Position, _user.StaffName, _user.ID, _user.Sex, _user.Birthdate, _user.PhoneNum, _user.Address, _user.Password, _user.Email });
+                return staffName.Valid;
+            }
+                     
+        }
+    }
+    public  class DAStaffList
+    {
+       
         public static async Task<ObservableCollection<Models.Account>> Load()
         {
             ObservableCollection<Models.Account> ret = new ObservableCollection<Models.Account>();
@@ -29,10 +87,11 @@ namespace Eliteria.DataAccess
             }
             return ret;
         }
-        public static async Task<int> CreateNewStaff(int Position, string Name, string IdentificationNumber, bool Gender, DateTime Birthday, string PhoneNumber, string Address, string Password, string Email)
+        public  async Task<staffName> CreateNewStaff(Account a)     // (int Position, string Name, string IdentificationNumber, bool Gender, DateTime Birthday, string PhoneNumber, string Address, string Password, string Email)
         {
             string query = "Eliteria_AddNewStaff @Position , @Name , @IdentificationNumber , @Gender , @Birthday , @PhoneNumber , @Address , @Password , @Email";
-            return await ExecuteQuery.ExecuteNoneQueryAsync(query, new object[] { Position, Name, IdentificationNumber, Gender, Birthday, PhoneNumber, Address, Password, Email});
+             await ExecuteQuery.ExecuteNoneQueryAsync(query, new object[] { a.Position, a.StaffName, a.ID, a.Sex, a.Birthdate, a.PhoneNum, a.Address, a.Password, a.Email});
+            return staffName.Valid;
         }
 
         public static async Task<int> ModifyStaffInfo(int StaffID, int Position, string Name, string PhoneNumber, string Email, string Address)

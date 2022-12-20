@@ -1,9 +1,16 @@
-﻿using System;
+﻿using DevExpress.ClipboardSource.SpreadsheetML;
+
+using Eliteria.DataAccess;
+using Eliteria.Models;
+
+using System;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace Eliteria.Command
 {
+   
     public class CreateNewStaffCMD : BaseCommandAsync
     {
         ViewModels.AddStaffViewModel viewModel;
@@ -14,14 +21,38 @@ namespace Eliteria.Command
             this.viewModel = viewModel;
             this.staffsViewModel = staffsViewModel;
         }
-
+         public int countStaff()
+        {
+            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-IK1QN6E;Initial Catalog=ELITERIA;Integrated Security=True");
+            conn.Open();
+            SqlCommand comm = new SqlCommand("SELECT COUNT(*) FROM NHANVIEN", conn);
+            Int32 count = (Int32)comm.ExecuteScalar();
+            return count;
+        }
         public override async Task ExecuteAsync(object parameter)
         {
             if (Validation(viewModel.Name, viewModel.IdentificationNumber, viewModel.Password, viewModel.PhoneNumber, viewModel.Address, BlankNameCallBack, BlankIdCallBack, BlankPassCallBack, BlankPhoneCallBack, BlankAddrCallBack))
             {
                 if (viewModel.Email == null) viewModel.Email = "";
-                int res = await DataAccess.DAStaffList.CreateNewStaff(viewModel.SelectedPosition, viewModel.Name, viewModel.IdentificationNumber, viewModel.SelectedGender, viewModel.Birthday, viewModel.PhoneNumber, viewModel.Address, viewModel.Password, viewModel.Email).ContinueWith(OnQueryFinished);
-                if (res > 0)
+                Models.Account account = new Models.Account()
+                {
+                   
+
+                StaffID = countStaff(),
+                    Email = viewModel.Email,
+                    Password = viewModel.Password,
+                    StaffName = viewModel.Name,
+                    PhoneNum = viewModel.PhoneNumber,
+                    ID = viewModel.IdentificationNumber,
+                    Address = viewModel.Address,
+                    Sex = viewModel.SelectedGender,
+                    Position = viewModel.SelectedPosition,
+                    Birthdate = viewModel.Birthday
+                };
+                //DAStaffList dAStaffList = new DAStaffList();
+               
+             var res = await ProxyDAStaffList.CreateNewStaff(account);             //(viewModel.SelectedPosition, viewModel.Name, viewModel.IdentificationNumber, viewModel.SelectedGender, viewModel.Birthday, viewModel.PhoneNumber, viewModel.Address, viewModel.Password, viewModel.Email).ContinueWith(OnQueryFinished);
+                if (res == staffName.Valid)
                 {
                     staffsViewModel.StaffList = await DataAccess.DAStaffList.Load();
 
@@ -30,7 +61,7 @@ namespace Eliteria.Command
                 }
                 else
                 {
-                    viewModel.StatusMessage = "Đã xảy ra lỗi khi thực thi hành động này. Xin vui lòng kiểm tra lại kết nối";
+                    viewModel.StatusMessage = "Đã xảy ra lỗi khi thực thi hành động này. Xin vui lòng kiểm tra lại  dữ liệu nhập vào";
                     viewModel.StatusColor = Brushes.Red;
                 }
             }
