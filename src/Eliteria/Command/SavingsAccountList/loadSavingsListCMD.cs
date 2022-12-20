@@ -18,8 +18,9 @@ namespace Eliteria.Command
 
         public override async Task ExecuteAsync(object parameter)
         {
+            SavingsAccountSingleton.Instance.init();
             viewModel.IsLoading = true;
-            viewModel.savingsAccounts = await DASavingAccountList.LoadListFromDatabase().ContinueWith(OnSavingsAccLoadCompleted);
+            viewModel.savingsAccounts = SavingsAccountSingleton.Instance.accounts;
             viewModel.AllSavings = viewModel.savingsAccounts;
             viewModel.IsLoading = false;
         }

@@ -20,7 +20,7 @@ namespace Eliteria.DataAccess
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 SavingsAccount savingsAccount = new SavingsAccount();
-                savingsAccount.Name = data.Rows[i][0].ToString();
+                savingsAccount.Name = data.Rows[i][0].ToString();   
                 savingsAccount.AccountNumber = data.Rows[i][1].ToString();
                 savingsAccount.IdentificationNumber = data.Rows[i][2].ToString();
                 savingsAccount.Balance = Convert.ToDecimal(data.Rows[i][3]);

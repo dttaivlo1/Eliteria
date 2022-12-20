@@ -59,6 +59,16 @@ namespace Eliteria.Command
                     viewModel.StatusMessage = "Thêm nhân viên thành công";
                     viewModel.StatusColor = Brushes.Green;
                 }
+                else if (res == staffName.InvalidBirthday)
+                {
+                    viewModel.StatusMessage = "Đã xảy ra lỗi khi thực thi hành động này. Xin vui lòng kiểm tra lại ngày sinh";
+                    viewModel.StatusColor = Brushes.Red;
+                }
+                else if (res == staffName.InvalidFullName)
+                {
+                    viewModel.StatusMessage = "Đã xảy ra lỗi khi thực thi hành động này. Xin vui lòng kiểm tra lại Tên nhân viên";
+                    viewModel.StatusColor = Brushes.Red;
+                }
                 else
                 {
                     viewModel.StatusMessage = "Đã xảy ra lỗi khi thực thi hành động này. Xin vui lòng kiểm tra lại  dữ liệu nhập vào";
